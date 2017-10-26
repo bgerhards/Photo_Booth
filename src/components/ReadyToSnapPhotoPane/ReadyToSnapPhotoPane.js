@@ -7,6 +7,14 @@ class ReadyToSnapPhotoPane extends Component {
     constructor(props) {
         super(props);
         console.log(props);
+        this.snapPhoto = this.snapPhoto.bind(this);
+        this.startCountdown = this.startCountdown.bind(this);
+        this.getCountdownScreenPosition = this.getCountdownScreenPosition.bind(this);
+        this.getTopOrBottom = this.getTopOrBottom.bind(this);
+        this.getLeftOrRight = this.getLeftOrRight.bind(this);
+        this.randomizeArrayValue = this.randomizeArrayValue.bind(this);
+        this.captureImage = this.captureImage.bind(this);
+
     }
 
     componentDidMount() {}
