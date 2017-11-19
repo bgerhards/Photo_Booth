@@ -1,99 +1,31 @@
 import React, {Component} from 'react';
-import Instruction from '../Instruction/Instruction'
-import Button from '../Button/Button'
-import $ from 'jquery';
+import Instruction from '../Instruction/Instruction';
+import Button from '../Button/Button';
+import CountDown from '../CountDown/CountDown';
 
 class ReadyToSnapPhotoPane extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
-        this.snapPhoto = this.snapPhoto.bind(this);
-        this.startCountdown = this.startCountdown.bind(this);
-        this.getCountdownScreenPosition = this.getCountdownScreenPosition.bind(this);
-        this.getTopOrBottom = this.getTopOrBottom.bind(this);
-        this.getLeftOrRight = this.getLeftOrRight.bind(this);
-        this.randomizeArrayValue = this.randomizeArrayValue.bind(this);
-        this.captureImage = this.captureImage.bind(this);
-
-    }
-
-    componentDidMount() {}
-
-    snapPhoto() {
-        const takePhoto = $("takePhoto");
-        const photoPreviewDisplay = $('#photoPreview');
-        const mainContentWrapper = $('#mainContentWrapper');
-        mainContentWrapper.hide();
-        takePhoto.hide();
-        this.startCountdown(this.props.configuration.countDown.length)
-            .then(function () {
-                this.captureImage()
-                    .then(function () {
-                        mainContentWrapper.show();
-                        photoPreviewDisplay.show();
-                    })
-            })
-    }
-
-    startCountdown(countDown) {
-        return new Promise(function (resolve, reject) {
-            if (countDown > 0) {
-                // top-left, top-right, bottom-right, bottom-left console.log(i);
-                $('#countdown')
-                    .text(countDown)
-                    .removeClass()
-                    .addClass(this.getCountdownScreenPosition(countDown))
-                    .show(500)
-                    .hide(500, function () {
-                        this
-                            .startCountdown(countDown - 1)
-                            .then(function () {
-                                resolve()
-                            })
-                    });
-            } else {
-                resolve();
+        this.state = {
+            countDown: {
+                show: false
             }
-        })
-    }
-
-    getCountdownScreenPosition(countDown) {
-        if (countDown === 1) {
-            return 'div-absolute-center'
-        }
-        return 'div-' + this.getTopOrBottom() + '-' + this.getLeftOrRight();
-    }
-
-    getTopOrBottom() {
-        var topOrBottom = ['top', 'bottom'];
-        return this.randomizeArrayValue(topOrBottom);
-    }
-
-    getLeftOrRight() {
-        var leftOrRight = ['left', 'right'];
-        return this.randomizeArrayValue(leftOrRight);
-    }
-
-    randomizeArrayValue(arrayItems) {
-        return arrayItems[Math.floor(Math.random() * arrayItems.length)];
+        };
+        this.captureImage = this.captureImage.bind(this);
     }
 
     captureImage() {
-        return new Promise(function (resolve, reject) {
 
-            var video = document.querySelector("#videoElement");
-            var canvas2 = document.createElement("canvas");
-            canvas2.width = video.videoWidth;
-            canvas2.height = video.videoHeight;
-            canvas2
-                .getContext('2d')
-                .drawImage(video, 0, 0, canvas2.width, canvas2.height);
-            document
-                .getElementById("canvas")
-                .src = canvas2.toDataURL();
-            resolve();
-            // reject(Error("It broke"));
-        });
+        const video = document.querySelector("#videoElement");
+        const canvas2 = document.createElement("canvas");
+        canvas2.width = video.videoWidth;
+        canvas2.height = video.videoHeight;
+        canvas2
+            .getContext('2d')
+            .drawImage(video, 0, 0, canvas2.width, canvas2.height);
+        document
+            .getElementById("canvas")
+            .src = canvas2.toDataURL();
     };
 
     render() {
@@ -101,11 +33,13 @@ class ReadyToSnapPhotoPane extends Component {
             <div id="takePhoto">
                 <Instruction/>
                 <div className="options">
-                    <Button id="snapPhoto" onClick={this.snapPhoto}>
-                        <span className="glyphicon glyphicon-camera center-text" aria-hidden="true"></span>
+                    <Button id="snapPhoto" onClick={this.captureImage()}>
+                        <span className="glyphicon glyphicon-camera center-text" aria-hidden="true"/>
                         Take a Picture
                     </Button>
                 </div>
+                <CountDown show={this.state.showCountDown} whenCountDownComplete={this.takePicture}
+                           countDownLength="5"/>
             </div>
         )
 

@@ -30,11 +30,8 @@ class App extends Component {
                     <div id="mainContentWrapper">
                         <Header />
                         <InteractionPaneWrapper photo={this.state.photo} />
-                        
-                        
                     </div>
                 </div>
-                <div id="countdown" className="div-absolute-center">5</div>
             </div>
         );
     }
