@@ -15,9 +15,6 @@ class App extends Component {
             },
             countDown: {
                 length: 5
-            },
-            photo: {
-                snapped: false
             }
         }
     }
@@ -29,7 +26,7 @@ class App extends Component {
                     <Video autoPlay="true" id="videoElement" config={this.state.video} />
                     <div id="mainContentWrapper">
                         <Header />
-                        <InteractionPaneWrapper photo={this.state.photo} />
+                        <InteractionPaneWrapper/>
                     </div>
                 </div>
             </div>

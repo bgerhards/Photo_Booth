@@ -6,18 +6,21 @@ class InteractionPaneWrapper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            takePhoto: {
-                countDown: {
-                    length: 5
-                }
-            }
+            photoSnapped: false
+
         }
+        this.managePhotoSnapped = this.managePhotoSnapped.bind(this);
     }
+
+    managePhotoSnapped() {
+        this.setState({photoSnapped : !this.state.photoSnapped});
+    }
+
     render() {
-        if (this.props.photo.snapped) {
-            return (<PhotoSnappedPane/>)
+        if (this.state.photoSnapped) {
+            return (<PhotoSnappedPane retakeImage={this.managePhotoSnapped }/>)
         } else {
-            return (<ReadyToSnapPhotoPane configuration={this.state.takePhoto}/>)
+            return (<ReadyToSnapPhotoPane captureImage={this.managePhotoSnapped} />)
         }
     }
 }
