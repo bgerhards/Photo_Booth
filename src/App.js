@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
-import Header from './components/Header/Header'
 import InteractionPaneWrapper from './components/InteractionPaneWrapper/InteractionPaneWrapper'
 import Video from './components/Video/Video'
 import './App.css';
@@ -23,11 +22,8 @@ class App extends Component {
         return (
             <div className="App">
                 <div id="container">
-                    <Video autoPlay="true" id="videoElement" config={this.state.video} />
-                    <div id="mainContentWrapper">
-                        <Header />
-                        <InteractionPaneWrapper/>
-                    </div>
+                    <Video autoPlay="true" id="videoElement" config={this.state.video}/>
+                    <InteractionPaneWrapper/>
                 </div>
             </div>
         );

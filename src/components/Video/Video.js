@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 
 class Video extends Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
-
     componentDidMount() {
         var video = document.querySelector("#videoElement");
 

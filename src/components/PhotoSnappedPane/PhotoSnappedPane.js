@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Button from '../Button/Button'
+import Header from '../Header/Header'
 
 class PhotoShoppedPane extends Component {
     constructor(props) {
         super(props);
-        this.retakeImage = this.props.retakeImage;
+        this.retakePhoto = this.props.retakePhoto;
     }
 
     componentWillMount() {
@@ -23,15 +24,18 @@ class PhotoShoppedPane extends Component {
 
     render() {
         return (
-            <div id="photoPreview" className="center-text">
-                <div>
-                    <img src={this.state.dataURL} id="canvas" className="img-responsive" alt="Cinque Terre"/>
-                </div>
-                <div className="options">
-                    <Button id="retakePhoto" onClick={this.retakeImage}>
-                        <span className="glyphicon glyphicon-camera center-text" aria-hidden="false"/>
-                        Retake Picture
-                    </Button>
+            <div id="mainContentWrapper">
+                <Header />
+                <div id="photoPreview" className="center-text">
+                    <div>
+                        <img src={this.state.dataURL} id="canvas" className="img-responsive" alt="Cinque Terre"/>
+                    </div>
+                    <div className="options">
+                        <Button id="retakePhoto" onClick={this.retakePhoto}>
+                            <span className="glyphicon glyphicon-camera center-text" aria-hidden="false"/>
+                            Retake Picture
+                        </Button>
+                    </div>
                 </div>
             </div>
         )
