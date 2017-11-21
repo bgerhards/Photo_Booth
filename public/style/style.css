@@ -35,10 +35,6 @@ body {
     box-shadow: #000000;
 }
 
-#photoPreview {
-    display: none;
-}
-
 header {
     text-align: center;
 }
@@ -96,8 +92,4 @@ header {
 .div-absolute-center {
     left: 47%;
     top: 47%;
-}
-
-#countdown {
-    display: none;
 }
