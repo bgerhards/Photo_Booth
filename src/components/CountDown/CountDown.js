@@ -55,7 +55,6 @@ class CountDown extends React.Component {
     showCountDown() {
         this.setState({
             style: {
-                fontSize: 60,
                 opacity: 1,
                 transition: 'all .5s ease'
             }
@@ -65,7 +64,6 @@ class CountDown extends React.Component {
     hideCountDown() {
         this.setState({
             style: {
-                fontSize: 60,
                 opacity: 0,
                 transition: 'all .5s ease'
             }
