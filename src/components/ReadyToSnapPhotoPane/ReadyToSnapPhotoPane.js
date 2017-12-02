@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Button from '../Button/Button';
-// import Header from '../Header/Header';
 import CountDown from "../CountDown/CountDown";
 import Video from "../Video/Video";
 import ActionButton from "../ActionButton/ActionButton";

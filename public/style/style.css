@@ -53,21 +53,21 @@ header {
 
 .actionPhotoButton {
     display: block;
-    height: 8vw;
-    width: 8vw;
-    line-height: 8vw;
+    height: 10rem;
+    width: 10rem;
+    line-height: 10rem;
 
-    -moz-border-radius: 4vw; /* or 50% */
-    border-radius: 4vw; /* or 50% */
+    -moz-border-radius: 5rem; /* or 50% */
+    border-radius: 5rem; /* or 50% */
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(28, 162, 251, 1);
     color: white;
     text-align: center;
     padding-top: 5px;
-    font-size: 5vw;
+    font-size: 6rem;
     cursor: pointer;
-    transform:translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .center-text {
