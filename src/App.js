@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
 import InteractionPaneWrapper from './components/InteractionPaneWrapper/InteractionPaneWrapper'
-import Video from './components/Video/Video'
 import './App.css';
 
 class App extends Component {
@@ -14,17 +13,15 @@ class App extends Component {
             },
             countDown: {
                 length: 5
-            }
+            },
+            snappedPhoto: null
         }
     }
 
     render() {
         return (
             <div className="App">
-                <div id="container">
-                    <Video autoPlay="true" id="videoElement" config={this.state.video}/>
-                    <InteractionPaneWrapper/>
-                </div>
+                <InteractionPaneWrapper/>
             </div>
         );
     }

@@ -6,8 +6,8 @@ class CountDown extends React.Component {
         this.snapPhoto = this.props.snapPhoto;
         this.state = {
             className: "",
-            maxCountdown: 5,
-            currentCount: 5
+            maxCountdown: props.timer,
+            currentCount: props.timer
         }
     }
 
