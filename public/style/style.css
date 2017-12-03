@@ -12,23 +12,31 @@ body {
     border: 0px #333 solid;
 }
 
-#videoElement {
+.videoElement,
+.imagePreview {
     padding: 0px;
-    margin: 0px;
+    margin: 0 auto;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    background-color: #000;
+}
+
+.videoElement {
+    transform: rotateY(180deg);
     width: 100%;
     height: 100%;
-    background-color: #000;
-    transform: rotateY(180deg);
+}
+
+.imagePreview {
+    max-height: 100%;
 }
 
 #mainContentWrapper {
     width: 100%;
     height: 100%;
-    background-color: rgba(230, 230, 230, .97);
+    background-color: rgba(0, 0, 0, 1);
     position: absolute;
     box-shadow: #000000;
 }
@@ -49,19 +57,19 @@ header {
     text-align: center;
     width: 100%;
     height: 10%;
+    padding: 0 auto;
     background-color: rgba(28, 162, 251, .3);
 }
 
 .actionPhotoButton {
-    display: block;
+    display: inline-block;
     height: 10rem;
     width: 10rem;
     line-height: 10rem;
+    margin: 10px;
 
-    -moz-border-radius: 5rem; /* or 50% */
-    border-radius: 5rem; /* or 50% */
-    margin-right: auto;
-    margin-left: auto;
+    -moz-border-radius: 5rem;
+    border-radius: 5rem;
     background-color: rgba(28, 162, 251, 1);
     color: white;
     text-align: center;
@@ -73,11 +81,6 @@ header {
 
 .center-text {
     text-align: center;
-}
-
-#canvas {
-    width: 70%;
-    margin: 10px auto 20px auto;
 }
 
 .div-top-left,

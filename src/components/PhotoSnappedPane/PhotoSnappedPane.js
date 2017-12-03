@@ -1,34 +1,42 @@
-import React, {Component} from 'react';
-import Button from '../Button/Button'
-import Header from '../Header/Header'
+import React, { Component } from 'react';
+import ActionButton from '../ActionButton/ActionButton';
 
 class PhotoShoppedPane extends Component {
-    constructor(props) {
-        super(props);
-        this.retakePhoto = this.props.retakePhoto;
-    }
+  constructor(props) {
+    super(props);
+    this.retakePhoto = this.props.retakePhoto;
+  }
 
-    componentWillMount() {
-    }
+  componentWillMount() {}
 
-    render() {
-        return (
-            <div id="mainContentWrapper">
-                <Header/>
-                <div id="photoPreview" className="center-text">
-                    <div>
-                        <img src={this.props.snappedPhoto} id="canvas" className="img-responsive" alt="Cinque Terre"/>
-                    </div>
-                    <div className="options">
-                        <Button id="retakePhoto" onClick={this.retakePhoto}>
-                            <span className="glyphicon glyphicon-camera center-text" aria-hidden="false"/>
-                            Retake Picture
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div id="mainContentWrapper">
+        <div>
+          <img
+            src={this.props.snappedPhoto}
+            id="canvas"
+            className="imagePreview img-responsive"
+            alt="Preview"
+          />
+        </div>
+        <div className="takePhoto">
+          <ActionButton disabled="false" onClick={this.retakePhoto}>
+            <span
+              className="glyphicon glyphicon-camera center-text"
+              aria-hidden="true"
+            />
+          </ActionButton>
+          <ActionButton disabled="false" onClick={this.retakePhoto}>
+            <span
+              className="glyphicon glyphicon-upload center-text"
+              aria-hidden="true"
+            />
+          </ActionButton>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default PhotoShoppedPane;
