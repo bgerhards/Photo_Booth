@@ -1,46 +1,33 @@
 import React, {Component} from 'react';
 import PhotoSnappedPane from '../PhotoSnappedPane/PhotoSnappedPane'
 import ReadyToSnapPhotoPane from '../ReadyToSnapPhotoPane/ReadyToSnapPhotoPane'
-import CountDown from '../CountDown/CountDown'
 
 class InteractionPaneWrapper extends Component {
     constructor(props) {
         super(props);
         this.state = {
             photoSnapped: false,
-            showCountdown: false,
-            countDownLength: 5
-
+            snappedPhoto: null
         };
         this.retakePhoto = this.retakePhoto.bind(this);
-        this.snapPhoto = this.snapPhoto.bind(this);
-        this.startCountdown = this.startCountdown.bind(this);
+        this.setSnappedPhoto = this.setSnappedPhoto.bind(this);
     }
 
     retakePhoto() {
-        this.setState({showCountdown: false});
         this.setState({photoSnapped: false});
     }
 
-    snapPhoto() {
-        this.setState({showCountdown: false});
-        this.setState({photoSnapped: true});
-    }
+    setSnappedPhoto(snappedPhoto) {
+        this.setState({snappedPhoto: snappedPhoto, photoSnapped: true})
 
-    startCountdown() {
-        this.setState({showCountdown: true});
-        this.setState({photoSnapped: false});
     }
-
 
     render() {
         if (this.state.photoSnapped) {
-            return (<PhotoSnappedPane retakePhoto={this.retakePhoto}/>)
-        } else if (this.state.showCountdown) {
-            return (<CountDown timer={this.state.countDownLength} snapPhoto={this.snapPhoto}/>)
+            return (<PhotoSnappedPane retakePhoto={this.retakePhoto} snappedPhoto={this.state.snappedPhoto}/>)
         }
         else {
-            return (<ReadyToSnapPhotoPane startCountdown={this.startCountdown}/>)
+            return (<ReadyToSnapPhotoPane startCountdown={this.startCountdown} setSnappedPhoto={this.setSnappedPhoto}/>)
         }
     }
 }

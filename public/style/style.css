@@ -22,15 +22,13 @@ body {
     width: 100%;
     height: 100%;
     background-color: #000;
+    transform: rotateY(180deg);
 }
 
 #mainContentWrapper {
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     background-color: rgba(230, 230, 230, .97);
-    padding: 60px;
     position: absolute;
     box-shadow: #000000;
 }
@@ -39,14 +37,38 @@ header {
     text-align: center;
 }
 
-.options {
-    text-align: center;
-}
-
 .instructions {
     padding: 30px;
     font-size: 20px;
     background-color: rgba(100, 100, 100, .03);
+}
+
+.takePhoto {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    background-color: rgba(28, 162, 251, .3);
+}
+
+.actionPhotoButton {
+    display: block;
+    height: 10rem;
+    width: 10rem;
+    line-height: 10rem;
+
+    -moz-border-radius: 5rem; /* or 50% */
+    border-radius: 5rem; /* or 50% */
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(28, 162, 251, 1);
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 6rem;
+    cursor: pointer;
+    transform: translateY(-50%);
 }
 
 .center-text {
