@@ -1,13 +1,11 @@
 import React from 'react';
 
-// import './Button.css';
-
-export default ({ children, id, disabled = false, onClick }) => {
+export default ({ children, id, disabled = false, onClick, className = "btn btn-primary btn-lg" }) => {
     const handleClick = e => onClick();
     
     return (
-        <button id={id} className="btn btn-primary btn-lg" disabled={disabled} onClick={handleClick}>
+        <span id={id} className={className} disabled={disabled} onClick={handleClick}>
             {children}
-        </button>
+        </span>
     )
 };

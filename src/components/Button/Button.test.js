@@ -12,19 +12,19 @@ describe('Button', () => {
     it('renders text', () => {
         const wrapper = shallow(<Button>Foobar</Button>);
         
-        expect(wrapper).toIncludeText('Foobar');
+        expect(wrapper.contains('Foobar')).toEqual(true);
     });
 
-    it('disables when disabled prop true', () => {
+    it('disabled when passed in Button', () => {
         const wrapper = shallow(<Button disabled={true}>Foobar</Button>);
 
-        expect(wrapper).toBeDisabled();
+        expect(wrapper.prop('disabled')).toEqual(true);
     });
 
     it('enables by default', () => {
         const wrapper = shallow(<Button>Foobar</Button>);
 
-        expect(wrapper).not.toBeDisabled();
+        expect(wrapper.prop('disabled')).toEqual(false);
     });
 
     it('executes onClick prop handler on click', () => {

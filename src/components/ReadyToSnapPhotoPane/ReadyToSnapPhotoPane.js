@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Button from '../Button/Button';
+// import Button from '../Button/Button';
 // import Header from '../Header/Header';
 import CountDown from "../CountDown/CountDown";
 import Video from "../Video/Video";
-import ActionButton from "../ActionButton/ActionButton";
+import Button from "../Button/Button";
 
 class ReadyToSnapPhotoPane extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class ReadyToSnapPhotoPane extends Component {
         this.setSnappedPhoto = props.setSnappedPhoto;
     }
 
-    startCountdown() {
+    startCountdown = () => {
         this.setState({countdown: true});
     }
 
@@ -33,7 +33,7 @@ class ReadyToSnapPhotoPane extends Component {
         }
     }
 
-    snapPhoto() {
+    snapPhoto = () => {
         const video = document.querySelector("#videoElement");
         const canvas2 = document.createElement("canvas");
         canvas2.width = video.videoWidth;
@@ -53,9 +53,9 @@ class ReadyToSnapPhotoPane extends Component {
                 {/*<Header/>*/}
                 <div id="takePhoto">
                     <div className="takePhoto">
-                        <ActionButton disabled="false" onClick={this.startCountdown}>
+                        <Button disabled="false" onClick={this.startCountdown} className="actionPhotoButton">
                             <span className="glyphicon glyphicon-camera center-text" aria-hidden="true"/>
-                        </ActionButton>
+                        </Button>
                     </div>
                 </div>
                 {this.renderCountdown()}
